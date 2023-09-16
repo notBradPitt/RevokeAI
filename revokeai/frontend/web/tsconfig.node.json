@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "vite.config.ts",
+    "./config/vite.app.config.ts",
+    "./config/vite.package.config.ts",
+    "./config/vite.common.config.ts",
+    "./config/common.ts"
+  ]
+}

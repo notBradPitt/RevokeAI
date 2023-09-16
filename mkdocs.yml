@@ -1,0 +1,180 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+# General
+site_name: RevokeAI Documentation
+site_url: https://revoke-ai.github.io/RevokeAI
+site_author: mauwii
+dev_addr: '127.0.0.1:8080'
+
+# Repository
+repo_name: 'revoke-ai/RevokeAI'
+repo_url: 'https://github.com/revoke-ai/RevokeAI'
+edit_uri: edit/main/docs/
+
+# Copyright
+copyright: Copyright &copy; 2023 RevokeAI Team
+
+# Configuration
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/file-document-edit-outline
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: blue
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.path
+    - search.highlight
+    - search.suggest
+    - toc.integrate
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: '#'
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: 'revoke-ai'
+      repo: 'RevokeAI'
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - tables
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - redirects:
+      redirect_maps:
+          'installation/INSTALL_AUTOMATED.md': 'installation/010_INSTALL_AUTOMATED.md'
+          'installation/INSTALL_MANUAL.md': 'installation/020_INSTALL_MANUAL.md'
+          'installation/INSTALL_SOURCE.md': 'installation/020_INSTALL_MANUAL.md'
+          'installation/INSTALL_DOCKER.md': 'installation/040_INSTALL_DOCKER.md'
+          'installation/INSTALLING_MODELS.md': 'installation/050_INSTALLING_MODELS.md'
+          'installation/INSTALL_PATCHMATCH.md': 'installation/060_INSTALL_PATCHMATCH.md'
+
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
+
+extra:
+  analytics:
+    provider: google
+    property: G-2X4JR4S4FB
+
+nav:
+    - Home: 'index.md'
+    - Installation:
+      - Overview: 'installation/INSTALLATION.md'
+      - Installing with the Automated Installer: 'installation/010_INSTALL_AUTOMATED.md'
+      - Installing Manually: 'installation/020_INSTALL_MANUAL.md'
+      - NVIDIA Cuda / AMD ROCm: 'installation/030_INSTALL_CUDA_AND_ROCM.md'
+      - Installing with Docker: 'installation/040_INSTALL_DOCKER.md'
+      - Installing Models: 'installation/050_INSTALLING_MODELS.md'
+      - Installing PyPatchMatch: 'installation/060_INSTALL_PATCHMATCH.md'
+      - Installing xFormers: 'installation/070_INSTALL_XFORMERS.md'
+      - Developers Documentation: 'installation/Developers_documentation/BUILDING_BINARY_INSTALLERS.md'
+      - Deprecated Documentation:
+        - Binary Installer: 'installation/deprecated_documentation/INSTALL_BINARY.md'
+        - Runninng RevokeAI on Google Colab: 'installation/deprecated_documentation/INSTALL_JUPYTER.md'
+        - Manual Installation on Linux: 'installation/deprecated_documentation/INSTALL_LINUX.md'
+        - Manual Installation on macOS: 'installation/deprecated_documentation/INSTALL_MAC.md'
+        - Manual Installation on Windows: 'installation/deprecated_documentation/INSTALL_WINDOWS.md'
+        - Installing Revoke with pip: 'installation/deprecated_documentation/INSTALL_PCP.md'
+        - Source Installer: 'installation/deprecated_documentation/INSTALL_SOURCE.md'
+    - Nodes:
+      - Community Nodes: 'nodes/communityNodes.md'
+      - Example Workflows: 'nodes/exampleWorkflows.md'
+      - Nodes Overview: 'nodes/overview.md'
+      - List of Default Nodes: 'nodes/defaultNodes.md'
+      - Node Editor Usage: 'nodes/NODES.md'
+      - ComfyUI to RevokeAI: 'nodes/comfyToRevoke.md'
+      - Contributing Nodes: 'nodes/contributingNodes.md'
+    - Features:
+      - Overview: 'features/index.md'
+      - New to RevokeAI?: 'help/gettingStartedWithAI.md'
+      - Concepts: 'features/CONCEPTS.md'
+      - Configuration: 'features/CONFIGURATION.md'
+      - ControlNet: 'features/CONTROLNET.md'
+      - Image-to-Image: 'features/IMG2IMG.md'
+      - Controlling Logging: 'features/LOGGING.md'
+      - Model Merging: 'features/MODEL_MERGING.md'
+      - Using Nodes : './nodes/overview'
+      - NSFW Checker: 'features/WATERMARK+NSFW.md'
+      - Postprocessing: 'features/POSTPROCESS.md'
+      - Prompting Features: 'features/PROMPTS.md'
+      - Textual Inversion Training: 'features/TRAINING.md'
+      - Unified Canvas: 'features/UNIFIED_CANVAS.md'
+      - RevokeAI Web Server: 'features/WEB.md'
+      - WebUI Hotkeys: "features/WEBUIHOTKEYS.md"
+      - Other: 'features/OTHER.md'
+    - Contributing:
+      - How to Contribute: 'contributing/CONTRIBUTING.md'
+      - Development:
+        - Overview: 'contributing/contribution_guides/development.md'
+        - New Contributors: 'contributing/contribution_guides/newContributorChecklist.md'
+        - RevokeAI Architecture: 'contributing/ARCHITECTURE.md'
+        - Frontend Documentation: 'contributing/contribution_guides/contributingToFrontend.md'
+        - Local Development: 'contributing/LOCAL_DEVELOPMENT.md'
+      - Documentation: 'contributing/contribution_guides/documentation.md'
+      - Nodes: 'contributing/INVOCATIONS.md'
+      - Translation: 'contributing/contribution_guides/translation.md'
+      - Tutorials: 'contributing/contribution_guides/tutorials.md'
+    - Changelog: 'CHANGELOG.md'
+    - Deprecated:
+      - Command Line Interface: 'deprecated/CLI.md'
+      - Embiggen: 'deprecated/EMBIGGEN.md'
+      - Inpainting: 'deprecated/INPAINTING.md'
+      - Outpainting: 'deprecated/OUTPAINTING.md'
+    - Help:
+      - Getting Started: 'help/gettingStartedWithAI.md'
+      - Diffusion Overview: 'help/diffusion.md'
+      - Sampler Convergence: 'help/SAMPLER_CONVERGENCE.md'
+    - Other:
+      - Contributors: 'other/CONTRIBUTORS.md'
+      - CompViz-README: 'other/README-CompViz.md'

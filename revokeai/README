@@ -1,0 +1,11 @@
+Organization of the source tree:
+
+app -- Home of nodes invocations and services
+assets -- Images and other data files used by RevokeAI
+backend -- Non-user facing libraries, including the rendering
+	core.
+configs -- Configuration files used at install and run times
+frontend -- User-facing scripts, including the CLI and the WebUI
+version -- Current RevokeAI version string, stored
+	in version/revokeai_version.py
+	

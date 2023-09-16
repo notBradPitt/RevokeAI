@@ -1,0 +1,207 @@
+[build-system]
+requires = ["setuptools~=65.5", "pip~=22.3", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "RevokeAI"
+description = "An implementation of Stable Diffusion which provides various new features and options to aid the image generation process"
+requires-python = ">=3.9, <3.12"
+readme = { content-type = "text/markdown", file = "README.md" }
+keywords = ["stable-diffusion", "AI"]
+dynamic = ["version"]
+license = { file = "LICENSE" }
+authors = [{ name = "The RevokeAI Project", email = "lincoln.stein@gmail.com" }]
+classifiers = [
+  'Development Status :: 4 - Beta',
+  'Environment :: GPU',
+  'Environment :: GPU :: NVIDIA CUDA',
+  'Environment :: MacOS X',
+  'Intended Audience :: End Users/Desktop',
+  'Intended Audience :: Developers',
+  'License :: OSI Approved :: MIT License',
+  'Operating System :: POSIX :: Linux',
+  'Operating System :: MacOS',
+  'Operating System :: Microsoft :: Windows',
+  'Programming Language :: Python :: 3 :: Only',
+  'Programming Language :: Python :: 3.10',
+  'Topic :: Artistic Software',
+  'Topic :: Internet :: WWW/HTTP :: WSGI :: Application',
+  'Topic :: Internet :: WWW/HTTP :: WSGI :: Server',
+  'Topic :: Multimedia :: Graphics',
+  'Topic :: Scientific/Engineering :: Artificial Intelligence',
+  'Topic :: Scientific/Engineering :: Image Processing',
+]
+dependencies = [
+  "accelerate~=0.21.0",
+  "albumentations",
+  "click",
+  "clip_anytorch",  # replacing "clip @ https://github.com/openai/CLIP/archive/eaa22acb90a5876642d0507623e859909230a52d.zip",
+  "compel~=2.0.2",
+  "controlnet-aux>=0.0.6",
+  "timm==0.6.13",   # needed to override timm latest in controlnet_aux, see  https://github.com/isl-org/ZoeDepth/issues/26
+  "datasets",
+  "diffusers[torch]~=0.20.0",
+  "dnspython~=2.4.0",
+  "dynamicprompts",
+  "easing-functions",
+  "einops",
+  "facexlib",
+  "fastapi==0.88.0",
+  "fastapi-events==0.8.0",
+  "fastapi-socketio==0.0.10",
+  "huggingface-hub~=0.16.4",
+  "invisible-watermark~=0.2.0", # needed to install SDXL base and refiner using their repo_ids
+  "matplotlib",                 # needed for plotting of Penner easing functions
+  "mediapipe",                  # needed for "mediapipeface" controlnet model
+  "numpy",
+  "npyscreen",
+  "omegaconf",
+  "onnx",
+  "onnxruntime",
+  "opencv-python",
+  "pydantic==1.*",
+  "picklescan",
+  "pillow",
+  "prompt-toolkit",
+  "pympler~=1.0.1",
+  "pypatchmatch",
+  'pyperclip',
+  "pyreadline3",
+  "python-multipart",
+  "pytorch-lightning",
+  "realesrgan",
+  "requests~=2.28.2",
+  "rich~=13.3",
+  "safetensors==0.3.1",
+  "scikit-image~=0.21.0",
+  "semver~=3.0.1",
+  "send2trash",
+  "test-tube~=0.7.5",
+  "torch~=2.0.1",
+  "torchvision~=0.15.2",
+  "torchmetrics~=0.11.0",
+  "torchsde~=0.2.5",
+  "transformers~=4.31.0",
+  "uvicorn[standard]~=0.21.1",
+  "windows-curses; sys_platform=='win32'",
+]
+
+[project.optional-dependencies]
+"dist" = ["pip-tools", "pipdeptree", "twine"]
+"docs" = [
+  "mkdocs-material<9.0",
+  "mkdocs-git-revision-date-localized-plugin",
+  "mkdocs-redirects==1.2.0",
+]
+"dev" = [
+  "jurigged",
+  "pudb",
+]
+"test" = [
+  "black",
+  "flake8",
+  "Flake8-pyproject",
+  "isort",
+  "pre-commit",
+  "pytest>6.0.0",
+  "pytest-cov",
+  "pytest-datadir",
+]
+"xformers" = [
+	   "xformers~=0.0.19; sys_platform!='darwin'",
+	   "triton; sys_platform=='linux'",
+]
+"onnx" = [
+  "onnxruntime",
+]
+"onnx-cuda" = [
+  "onnxruntime-gpu",
+]
+"onnx-directml" = [
+  "onnxruntime-directml",
+]
+
+[project.scripts]
+
+# legacy entrypoints; provided for backwards compatibility
+"configure_revokeai.py" = "revokeai.frontend.install.revokeai_configure:revokeai_configure"
+"textual_inversion.py" = "revokeai.frontend.training:revokeai_textual_inversion"
+
+# shortcut commands to start cli and web
+# "revokeai --web" will launch the web interface
+# "revokeai" will launch the CLI
+"revokeai" = "revokeai.frontend.legacy_launch_revokeai:main"
+
+# new shortcut to launch web interface
+"revokeai-web" = "revokeai.app.api_app:revoke_api"
+
+# full commands
+"revokeai-configure" = "revokeai.frontend.install.revokeai_configure:revokeai_configure"
+"revokeai-merge" = "revokeai.frontend.merge:revokeai_merge_diffusers"
+"revokeai-ti" = "revokeai.frontend.training:revokeai_textual_inversion"
+"revokeai-model-install" = "revokeai.frontend.install.model_install:main"
+"revokeai-migrate3" = "revokeai.backend.install.migrate_to_3:main"
+"revokeai-update" = "revokeai.frontend.install.revokeai_update:main"
+"revokeai-metadata" = "revokeai.frontend.CLI.sd_metadata:print_metadata"
+"revokeai-node-cli" = "revokeai.app.cli_app:revoke_cli"
+"revokeai-node-web" = "revokeai.app.api_app:revoke_api"
+"revokeai-import-images" = "revokeai.frontend.install.import_images:main"
+
+[project.urls]
+"Homepage" = "https://revoke-ai.github.io/RevokeAI/"
+"Documentation" = "https://revoke-ai.github.io/RevokeAI/"
+"Source" = "https://github.com/revoke-ai/RevokeAI/"
+"Bug Reports" = "https://github.com/revoke-ai/RevokeAI/issues"
+"Discord" = "https://discord.gg/ZmtBAhwWhy"
+
+[tool.setuptools.dynamic]
+version = { attr = "revokeai.version.__version__" }
+
+[tool.setuptools.packages.find]
+"where" = ["."]
+"include" = [
+    "revokeai.assets.web*","revokeai.version*",
+    "revokeai.generator*","revokeai.backend*",
+    "revokeai.frontend*", "revokeai.frontend.web.dist*",
+    "revokeai.frontend.web.static*",
+    "revokeai.configs*",
+    "revokeai.app*","ldm*",
+]
+
+[tool.setuptools.package-data]
+"revokeai.assets.web" = ["**.png","**.js","**.woff2","**.css"]
+"revokeai.backend" = ["**.png"]
+"revokeai.configs" = ["*.example", "**/*.yaml", "*.txt"]
+"revokeai.frontend.web.dist" = ["**"]
+"revokeai.frontend.web.static" = ["**"]
+
+#=== Begin: PyTest and Coverage
+[tool.pytest.ini_options]
+addopts = "--cov-report term --cov-report html --cov-report xml"
+[tool.coverage.run]
+branch = true
+source = ["revokeai"]
+omit = ["*tests*", "*migrations*", ".venv/*", "*.env"]
+[tool.coverage.report]
+show_missing = true
+fail_under = 85  # let's set something sensible on Day 1 ...
+[tool.coverage.json]
+output = "coverage/coverage.json"
+pretty_print = true
+[tool.coverage.html]
+directory = "coverage/html"
+[tool.coverage.xml]
+output = "coverage/index.xml"
+#=== End: PyTest and Coverage
+
+[tool.flake8]
+max-line-length = 120
+ignore = ["E203", "E266", "E501", "W503"]
+select = ["B", "C", "E", "F", "W", "T4"]
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+line_length = 120

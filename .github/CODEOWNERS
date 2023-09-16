@@ -1,0 +1,34 @@
+# continuous integration
+/.github/workflows/  @lstein @blessedcoolant @hipsterusername
+
+# documentation
+/docs/ @lstein @blessedcoolant @hipsterusername @Millu
+/mkdocs.yml @lstein  @blessedcoolant @hipsterusername @Millu
+
+# nodes
+/revokeai/app/ @Kyle0654 @blessedcoolant @psychedelicious @brandonrising @hipsterusername
+
+# installation and configuration
+/pyproject.toml  @lstein @blessedcoolant @hipsterusername
+/docker/  @lstein @blessedcoolant @hipsterusername
+/scripts/ @ebr @lstein @hipsterusername
+/installer/ @lstein @ebr @hipsterusername
+/revokeai/assets @lstein @ebr @hipsterusername
+/revokeai/configs @lstein @hipsterusername
+/revokeai/version @lstein @blessedcoolant @hipsterusername
+
+# web ui
+/revokeai/frontend @blessedcoolant @psychedelicious @lstein @maryhipp @hipsterusername
+/revokeai/backend @blessedcoolant @psychedelicious @lstein @maryhipp @hipsterusername
+
+# generation, model management, postprocessing
+/revokeai/backend  @damian0815 @lstein @blessedcoolant @gregghelt2 @StAlKeR7779 @brandonrising @ryanjdick @hipsterusername
+
+# front ends
+/revokeai/frontend/CLI @lstein @hipsterusername
+/revokeai/frontend/install @lstein @ebr @hipsterusername 
+/revokeai/frontend/merge @lstein @blessedcoolant @hipsterusername
+/revokeai/frontend/training @lstein @blessedcoolant @hipsterusername
+/revokeai/frontend/web @psychedelicious @blessedcoolant @maryhipp @hipsterusername
+
+

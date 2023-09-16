@@ -1,0 +1,48 @@
+# Copyright (c) 2023 Eugene Brodsky https://github.com/ebr
+
+version: '3.8'
+
+services:
+  revokeai:
+    image: "local/revokeai:latest"
+    # edit below to run on a container runtime other than nvidia-container-runtime.
+    # not yet tested with rocm/AMD GPUs
+    # Comment out the "deploy" section to run on CPU only
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+
+    # variables without a default will automatically inherit from the host environment
+    environment:
+      - REVOKEAI_ROOT
+      - HF_HOME
+
+    # Create a .env file in the same directory as this docker-compose.yml file
+    # and populate it with environment variables. See .env.sample
+    env_file:
+      - .env
+
+    ports:
+      - "${REVOKEAI_PORT:-9090}:9090"
+    volumes:
+      - ${REVOKEAI_ROOT:-~/revokeai}:${REVOKEAI_ROOT:-/revokeai}
+      - ${HF_HOME:-~/.cache/huggingface}:${HF_HOME:-/revokeai/.cache/huggingface}
+      # - ${REVOKEAI_MODELS_DIR:-${REVOKEAI_ROOT:-/revokeai/models}}
+      # - ${REVOKEAI_MODELS_CONFIG_PATH:-${REVOKEAI_ROOT:-/revokeai/configs/models.yaml}}
+    tty: true
+    stdin_open: true
+
+    # # Example of running alternative commands/scripts in the container
+    # command:
+    #   - bash
+    #   - -c
+    #   - |
+    #     revokeai-model-install --yes --default-only --config_file ${REVOKEAI_ROOT}/config_custom.yaml
+    #     revokeai-nodes-web --host 0.0.0.0

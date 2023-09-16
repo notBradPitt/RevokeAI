@@ -1,0 +1,80 @@
+@echo off
+
+PUSHD "%~dp0"
+setlocal
+
+call .venv\Scripts\activate.bat
+set REVOKEAI_ROOT=.
+
+:start
+echo Desired action:
+echo 1. Generate images with the browser-based interface
+echo 2. Explore RevokeAI nodes using a command-line interface
+echo 3. Run textual inversion training
+echo 4. Merge models (diffusers type only)
+echo 5. Download and install models
+echo 6. Change RevokeAI startup options
+echo 7. Re-run the configure script to fix a broken install or to complete a major upgrade
+echo 8. Open the developer console
+echo 9. Update RevokeAI
+echo 10. Command-line help
+echo Q - Quit
+set /P choice="Please enter 1-10, Q: [1] "
+if not defined choice set choice=1
+IF /I "%choice%" == "1" (
+    echo Starting the RevokeAI browser-based UI..
+    python .venv\Scripts\revokeai-web.exe %*
+) ELSE IF /I "%choice%" == "2" (
+    echo Starting the RevokeAI command-line..
+    python .venv\Scripts\revokeai.exe %*
+) ELSE IF /I "%choice%" == "3" (
+    echo Starting textual inversion training..
+    python .venv\Scripts\revokeai-ti.exe --gui
+) ELSE IF /I "%choice%" == "4" (
+    echo Starting model merging script..
+    python .venv\Scripts\revokeai-merge.exe --gui
+) ELSE IF /I "%choice%" == "5" (
+    echo Running revokeai-model-install...
+    python .venv\Scripts\revokeai-model-install.exe
+) ELSE IF /I "%choice%" == "6" (
+    echo Running revokeai-configure...
+    python .venv\Scripts\revokeai-configure.exe --skip-sd-weight --skip-support-models
+) ELSE IF /I "%choice%" == "7" (
+    echo Running revokeai-configure...
+    python .venv\Scripts\revokeai-configure.exe --yes --skip-sd-weight
+) ELSE IF /I "%choice%" == "8" (
+    echo Developer Console
+    echo Python command is:
+    where python
+    echo Python version is:
+    python --version
+    echo *************************
+    echo You are now in the system shell, with the local RevokeAI Python virtual environment activated,
+    echo so that you can troubleshoot this RevokeAI installation as necessary.
+    echo *************************
+    echo *** Type `exit` to quit this shell and deactivate the Python virtual environment ***
+    call cmd /k
+) ELSE IF /I "%choice%" == "9" (
+   echo Running revokeai-update...
+   python -m revokeai.frontend.install.revokeai_update
+) ELSE IF /I "%choice%" == "10" (
+    echo Displaying command line help...
+    python .venv\Scripts\revokeai.exe --help %*
+    pause
+    exit /b
+) ELSE IF /I "%choice%" == "q" (
+    echo Goodbye!
+    goto ending
+) ELSE (
+    echo Invalid selection
+    pause
+    exit /b
+)
+goto start
+
+endlocal
+pause
+
+:ending
+exit /b
+

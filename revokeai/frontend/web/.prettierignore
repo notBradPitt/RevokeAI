@@ -1,0 +1,13 @@
+dist/
+.husky/
+node_modules/
+patches/
+stats.html
+index.html
+.yarn/
+.yalc/
+*.scss
+src/services/api/schema.d.ts
+docs/
+static/
+src/theme/css/overlayscrollbars.css
