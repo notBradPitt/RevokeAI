@@ -1,6 +1,6 @@
 <div align="center">
 
-![project hero](https://github.com/revoke-ai/RevokeAI/assets/31807370/1a917d94-e099-4fa1-a70f-7dd8d0691018)
+![project hero](https://github.com/notBradPitt/RevokeAI/assets/31807370/1a917d94-e099-4fa1-a70f-7dd8d0691018)
 
 # Revoke AI - Generative AI for Professional Creatives
 ## Professional Creative Tools for Stable Diffusion, Custom-Trained Models, and more. 
