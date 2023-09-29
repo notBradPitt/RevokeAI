@@ -79,7 +79,6 @@ sd-1/controlnet/seg:
 sd-1/controlnet/lineart:
    repo_id: lllyasviel/control_v11p_sd15_lineart
    recommended: True
-   recommended: True
 sd-1/controlnet/lineart_anime:
    repo_id: lllyasviel/control_v11p_sd15s2_lineart_anime
 sd-1/controlnet/openpose:
