@@ -126,34 +126,3 @@ sd-1/lora/LowRA:
 sd-1/lora/Ink scenery:
    path: https://civitai.com/api/download/models/83390
    recommended: False
-
-sd-1/main/epic-realism:
-   path: https://civitai.com/api/download/models/143906
-   recommended: True
-sd-1/main/epic-realism-inpainting:
-   path: https://civitai.com/api/download/models/134361
-   recommended: True
-
-sd-1/main/realistic-vision:
-   path: https://civitai.com/api/download/models/130072
-   recommended: True
-sd-1/main/realistic-vision-inpainting:
-   path: https://civitai.com/api/download/models/130090
-   recommended: True
-
-sd-1/main/cyber-realistic:
-   path: https://civitai.com/api/download/models/138176
-   recommended: True
-sd-1/main/cyber-realistic-classic:
-   path: https://civitai.com/api/download/models/129379
-   recommended: True
-sd-1/main/cyber-realistic-inpainting:
-   path: https://civitai.com/api/download/models/140174
-   recommended: True
-
-sd-1/main/lazymix:
-   path: https://civitai.com/api/download/models/115086
-   recommended: True
-sd-1/main/photon:
-   path: https://civitai.com/api/download/models/90072
-   recommended: True
