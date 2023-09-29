@@ -72,10 +72,13 @@ sd-1/controlnet/depth:
    recommended: True
 sd-1/controlnet/normal_bae:
    repo_id: lllyasviel/control_v11p_sd15_normalbae
+   recommended: True
 sd-1/controlnet/seg:
    repo_id: lllyasviel/control_v11p_sd15_seg
+   recommended: True
 sd-1/controlnet/lineart:
    repo_id: lllyasviel/control_v11p_sd15_lineart
+   recommended: True
    recommended: True
 sd-1/controlnet/lineart_anime:
    repo_id: lllyasviel/control_v11p_sd15s2_lineart_anime
@@ -84,7 +87,7 @@ sd-1/controlnet/openpose:
    recommended: True
 sd-1/controlnet/scribble:
    repo_id: lllyasviel/control_v11p_sd15_scribble
-   recommended: False
+   recommended: True
 sd-1/controlnet/softedge:
    repo_id: lllyasviel/control_v11p_sd15_softedge
 sd-1/controlnet/shuffle:
@@ -103,3 +106,37 @@ sd-1/lora/LowRA:
    recommended: True
 sd-1/lora/Ink scenery:
    path: https://civitai.com/api/download/models/83390
+
+
+
+
+sd-1/main/epic-realism:
+   path: https://civitai.com/api/download/models/143906
+   recommended: True
+sd-1/main/epic-realism-inpainting:
+   path: https://civitai.com/api/download/models/134361
+   recommended: True
+
+sd-1/main/realistic-vision:
+   path: https://civitai.com/api/download/models/130072
+   recommended: True
+sd-1/main/realistic-vision-inpainting:
+   path: https://civitai.com/api/download/models/130090
+   recommended: True
+
+sd-1/main/cyber-realistic:
+   path: https://civitai.com/api/download/models/138176
+   recommended: True
+sd-1/main/cyber-realistic-classic:
+   path: https://civitai.com/api/download/models/129379
+   recommended: True
+sd-1/main/cyber-realistic-inpainting:
+   path: https://civitai.com/api/download/models/140174
+   recommended: True
+
+sd-1/main/lazymix:
+   path: https://civitai.com/api/download/models/115086
+   recommended: True
+sd-1/main/photon:
+   path: https://civitai.com/api/download/models/90072
+   recommended: True
