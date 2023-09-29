@@ -4,7 +4,7 @@ sd-1/main/stable-diffusion-v1-5:
    repo_id: runwayml/stable-diffusion-v1-5
    recommended: True
    default: True
-sd-1/main/stable-diffusion-v1-5-inpainting:
+sd-1/main/stable-diffusion-inpainting:
    description: RunwayML SD 1.5 model optimized for inpainting, diffusers version (4.27 GB)
    repo_id: runwayml/stable-diffusion-inpainting
    recommended: True
@@ -16,22 +16,26 @@ sd-2/main/stable-diffusion-2-inpainting:
    description: Stable Diffusion version 2.0 inpainting model (5.21 GB)
    repo_id: stabilityai/stable-diffusion-2-inpainting
    recommended: False
+sdxl/main/stable-diffusion-xl-base-0-9:
+   description: Stable Diffusion XL base model (12 GB; access token required)
+   repo_id: stabilityai/stable-diffusion-xl-base-0.9
+   recommended: False
+sdxl-refiner/main/stable-diffusion-xl-refiner-0-9:
+   description: Stable Diffusion XL refiner model (12 GB; access token required)
+   repo_id: stabilityai/stable-diffusion-xl-refiner-0.9
+   recommended: False
 sdxl/main/stable-diffusion-xl-base-1-0:
-   description: Stable Diffusion XL base model (12 GB)
+   description: Stable Diffusion XL base model (12 GB; access token required)
    repo_id: stabilityai/stable-diffusion-xl-base-1.0
    recommended: True
 sdxl-refiner/main/stable-diffusion-xl-refiner-1-0:
-   description: Stable Diffusion XL refiner model (12 GB)
+   description: Stable Diffusion XL refiner model (12 GB; access token required)
    repo_id: stabilityai/stable-diffusion-xl-refiner-1.0
    recommended: False
-sdxl/vae/sdxl-1-0-vae-fix:
-   description: Fine tuned version of the SDXL-1.0 VAE
-   repo_id: madebyollin/sdxl-vae-fp16-fix
-   recommended: True
 sd-1/main/Analog-Diffusion:
    description: An SD-1.5 model trained on diverse analog photographs (2.13 GB)
    repo_id: wavymulder/Analog-Diffusion
-   recommended: False
+   recommended: True
 sd-1/main/Deliberate:
    description: Versatile model that produces detailed images up to 768px (4.27 GB)
    repo_id: XpucT/Deliberate
@@ -52,6 +56,10 @@ sd-1/main/openjourney:
    description: An SD 1.5 model fine tuned on Midjourney; prompt with "mdjrny-v4 style" (2.13 GB)
    repo_id: prompthero/openjourney
    recommended: False
+sd-1/main/portraitplus:
+   description: An SD-1.5 model trained on close range portraits of people; prompt with "portrait+" (2.13 GB)
+   repo_id: wavymulder/portraitplus
+   recommended: False
 sd-1/main/seek.art_MEGA:
    repo_id: coreco/seek.art_MEGA
    description: A general use SD-1.5 "anything" model that supports multiple styles (2.1 GB)
@@ -60,13 +68,19 @@ sd-1/main/trinart_stable_diffusion_v2:
    description: An SD-1.5 model finetuned with ~40K assorted high resolution manga/anime-style images (2.13 GB)
    repo_id: naclbit/trinart_stable_diffusion_v2
    recommended: False
+sd-1/main/waifu-diffusion:
+   description: An SD-1.5 model trained on 680k anime/manga-style images (2.13 GB)
+   repo_id: hakurei/waifu-diffusion
+   recommended: False
 sd-1/controlnet/canny:
    repo_id: lllyasviel/control_v11p_sd15_canny
    recommended: True
 sd-1/controlnet/inpaint:
    repo_id: lllyasviel/control_v11p_sd15_inpaint
+   recommended: False
 sd-1/controlnet/mlsd:
    repo_id: lllyasviel/control_v11p_sd15_mlsd
+   recommended: False
 sd-1/controlnet/depth:
    repo_id: lllyasviel/control_v11f1p_sd15_depth
    recommended: True
@@ -81,6 +95,7 @@ sd-1/controlnet/lineart:
    recommended: True
 sd-1/controlnet/lineart_anime:
    repo_id: lllyasviel/control_v11p_sd15s2_lineart_anime
+   recommended: False
 sd-1/controlnet/openpose:
    repo_id: lllyasviel/control_v11p_sd15_openpose
    recommended: True
@@ -89,53 +104,25 @@ sd-1/controlnet/scribble:
    recommended: True
 sd-1/controlnet/softedge:
    repo_id: lllyasviel/control_v11p_sd15_softedge
+   recommended: False
 sd-1/controlnet/shuffle:
    repo_id: lllyasviel/control_v11e_sd15_shuffle
+   recommended: False
 sd-1/controlnet/tile:
    repo_id: lllyasviel/control_v11f1e_sd15_tile
+   recommended: False
 sd-1/controlnet/ip2p:
    repo_id: lllyasviel/control_v11e_sd15_ip2p
+   recommended: False
 sd-1/embedding/EasyNegative:
    path: https://huggingface.co/embed/EasyNegative/resolve/main/EasyNegative.safetensors
    recommended: True
 sd-1/embedding/ahx-beta-453407d:
    repo_id: sd-concepts-library/ahx-beta-453407d
+   recommended: False
 sd-1/lora/LowRA:
    path: https://civitai.com/api/download/models/63006
    recommended: True
 sd-1/lora/Ink scenery:
    path: https://civitai.com/api/download/models/83390
-
-
-
-
-sd-1/main/epic-realism:
-   path: https://civitai.com/api/download/models/143906
-   recommended: True
-sd-1/main/epic-realism-inpainting:
-   path: https://civitai.com/api/download/models/134361
-   recommended: True
-
-sd-1/main/realistic-vision:
-   path: https://civitai.com/api/download/models/130072
-   recommended: True
-sd-1/main/realistic-vision-inpainting:
-   path: https://civitai.com/api/download/models/130090
-   recommended: True
-
-sd-1/main/cyber-realistic:
-   path: https://civitai.com/api/download/models/138176
-   recommended: True
-sd-1/main/cyber-realistic-classic:
-   path: https://civitai.com/api/download/models/129379
-   recommended: True
-sd-1/main/cyber-realistic-inpainting:
-   path: https://civitai.com/api/download/models/140174
-   recommended: True
-
-sd-1/main/lazymix:
-   path: https://civitai.com/api/download/models/115086
-   recommended: True
-sd-1/main/photon:
-   path: https://civitai.com/api/download/models/90072
-   recommended: True
+   recommended: False
